@@ -20,7 +20,9 @@ BUILD_PATH :=		build
 LIBS :=				
 SRC :=				$(PROJNAME)/$(PROJNAME).ino \
 					$(wildcard $(PROJNAME)/*.cpp) \
-					$(wildcard $(PROJNAME)/*.hpp)
+					$(wildcard $(PROJNAME)/*.hpp) \
+					$(wildcard libraries/ArduGcn/*.cpp) \
+					$(wildcard libraries/ArduGcn/*.hpp)
 BOARD_PROPERTIES :=	
 OBJNAME :=			$(PROJNAME).ino.hex
 
@@ -64,9 +66,8 @@ $(foreach lib,$(LIBS), \
 
 ### Build
 
-# Note: ESP32 shown here. Arduino just needs the first! It will be $(PROJNAME).ino.hex
-
-$(PROJNAME).hex: $(SRC) $(PKG_INDEX) $(BOARD_PKG_INDEX) $(foreach lib,$(LIBS),libraries/$(subst \,,$(lib))/)
+$(PROJNAME).hex: $(SRC) $(PKG_INDEX) $(BOARD_PKG_INDEX) $(foreach lib,$(LIBS),$(ARD_FLD)/libraries/$(subst \,,$(lib))/)
+	rm -rf /tmp/arduino
 	mkdir -p $(BUILD_PATH)
 	$(ARDC) compile \
 		--config-file $(ARD_CONF) \
