@@ -1,0 +1,3 @@
+[submodule "ardu-gcn"]
+	path = ardu-gcn
+	url = git@github.com:blueOkiris/ardu-gcn.git
