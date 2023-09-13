@@ -47,6 +47,24 @@ Visual example:
 
 ![stick-changes](./docs/stick-changes.png)
 
+## Uploading Code to Board
+
+- Depends:
+   + Linux system
+   + arduino-cli
+
+1. Identify port (probably something like /dev/ttyACM0 or /dev/ttyUSB0)
+2. `cd code/`
+3. `make upload PORT=/dev/<whatever your port was>`
+
+## Ordering PCB
+
+TODO
+
+## Printing Enclosure
+
+TODO
+
 ## Contributing
 
 There are a few requirements for contributing. If your PR does not meet these requirements, then it will be rejected.
