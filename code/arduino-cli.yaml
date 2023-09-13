@@ -1,0 +1,7 @@
+board_manager:
+  additional_urls: [ ]
+directories:
+  data: arduino-cli/data
+  downloads: arduino-cli/staging
+  user: arduino-cli/
+
